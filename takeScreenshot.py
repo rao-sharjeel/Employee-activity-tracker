@@ -3,7 +3,7 @@ import cv2
 import pyautogui
 import datetime
 
-def take_screenshot():  
+def take_screenshot(image_name = str(datetime.datetime.now().strftime("%H-%M-%S"))):  
     try:
         # take screenshot using pyautogui
         image = pyautogui.screenshot()
@@ -14,10 +14,10 @@ def take_screenshot():
         image = cv2.cvtColor(np.array(image),
                             cv2.COLOR_RGB2BGR)
         # Getting current time
-        current_time = datetime.datetime.now().strftime("%H-%M-%S")
+        # current_time = datetime.datetime.now().strftime("%H-%M-%S")
 
         # writing it to the disk using opencv
-        cv2.imwrite(f"screenshots/{str(current_time)}.png", image)
+        cv2.imwrite(f"screenshots/{str(image_name)}.png", image)
     except:
         return 0
     return 1
