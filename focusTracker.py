@@ -7,7 +7,7 @@ from takeScreenshot import take_screenshot
 import json
 from datetime import datetime
 
-TIME_INTERVAL = 5 #time interval in seconds after which screenshot and json will be created and API will be called.
+TIME_INTERVAL = 60 #time interval in seconds after which screenshot and json will be created and API will be called.
 POSTING_FLAG = 0 # 0 means we are currently not posting anything and only saving.
 
 def save_to_file(filename, json_data):
@@ -21,6 +21,8 @@ def post_json(json_data):
 
 def post_screenshot(ss_name):
     print("Posting screenshot" + str(ss_name))
+
+def make_json():
 
 def focus_tracker():
     first_json_file = 'json_file_1.json'
@@ -41,7 +43,7 @@ def focus_tracker():
         except:
             current_app = "undefined"
         timestamp[current_app] = int(time.time())
-        time.sleep(1)
+        # time.sleep(1)
         
         if current_app not in process_time.keys():
             process_time[current_app] = 0

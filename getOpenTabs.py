@@ -16,3 +16,6 @@ def process_tcp_packet(packet):
 def sniff_urls():
     # Start sniffing the network.
     sniff(filter='tcp', prn=process_tcp_packet)
+
+
+# sniff_urls()

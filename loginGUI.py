@@ -3,6 +3,7 @@ from focusTracker import focus_tracker
 from threading import Thread
 import time
 import requests
+from getOpenTabs import *
 
 LOGIN_ENDPOINT = 'https://stagehrms.transemr.com/api/login'
 login_status = ""
@@ -16,9 +17,9 @@ app.title("Login")
 
 def check_user(user, pas):
     # check using API
-    r = requests.post(LOGIN_ENDPOINT, json={'username': user, 'password': pas})
-    if r.status_code == 200:
-        token = r.json()
+    # r = requests.post(LOGIN_ENDPOINT, json={'username': user, 'password': pas})
+    # if r.status_code == 200:
+    #     token = r.json()
     if user == "username" and pas == "password":
         return 1
     return 0
@@ -38,9 +39,6 @@ def login_button_callback():
         login_status = "Login Unsuccessful"
         status_label.configure(text=login_status)
 
-
-def slider_callback(value):
-    progressbar_1.set(value)
 
 
 frame_1 = customtkinter.CTkFrame(master=app)
