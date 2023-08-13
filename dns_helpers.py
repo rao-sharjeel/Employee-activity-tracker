@@ -53,3 +53,5 @@ def has_domain_format(words):
 def is_valid_url(dns_query_name):
     url_split = dns_query_name.split('.')[0:-1]
     return len(url_split) < 5 and has_api_word(url_split) == False and hidden_api_word(url_split) == False and has_ad(url_split) == False and has_hiphen(url_split) == False and has_domain_format(url_split) == True and has_single_char(url_split) == False
+
+print(is_valid_url('goo-gle.com.'))

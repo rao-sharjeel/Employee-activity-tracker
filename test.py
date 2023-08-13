@@ -2,7 +2,6 @@ import psutil
 import psutil
 import pychrome
 
-
 def get_background_processes():
     background_processes = []
     for proc in psutil.process_iter(['pid', 'name', 'username', 'status']):
@@ -28,7 +27,8 @@ def get_chrome_url(pid):
                 return tab['url']
 
     finally:
-        browser.close_tab()
+        pass
+        # browser.close_tab()
 
     return None 
 
@@ -49,8 +49,4 @@ if __name__ == "__main__":
 
     print(pids)
     print(len(pids))
-
     get_urls(pids)
-
-
-        
